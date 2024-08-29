@@ -1,0 +1,62 @@
+kubectl get svc
+kubectl delete svc my-rc
+kubectl create -f deployment.yaml
+kubectl get deploy
+kubectl get deploy -o wide
+kubectl get replicasets.apps
+kubectl get pods
+kubectl get svc
+kubectl get deployments.apps
+kubectl describe deployments.apps mydep
+kubectl get deployments.apps  -o wide
+kubectl set image deployment mydep con1=httpd:latest
+kubectl get replicasets.apps
+kubectl get pods
+kubectl get rs
+kubectl get pods
+kubectl describe pod mydep-7d6b48f545-nbjr8
+kubectl get pods
+kubectl get deployments.apps  -o wide
+kubectl run test --image httpd:latest
+kubectl get pods
+kubectl get rs
+kubectl get deployments.apps -o wide
+kubectl rollout history deployment mydep
+kubectl rollout history deployment mydep --revision 1
+kubectl rollout history deployment mydep --revision 2
+kubectl rollout history deployment mydep
+kubectl annotate deployments.apps mydep kubernetes.io/change-cause="updating image http:latest"
+kubectl rollout history deployment mydep
+kubectl annotate deployments.apps mydep kubernetes.io/change-cause="updating aneesh image http:latest"
+kubectl rollout history deployment mydep
+kubectl rollout undo deployment mydep --to-revision 1
+kubectl get rs
+kubectl get pods
+kubectl get rs
+kubectl rollout history deployment mydep
+kubectl annotate deployments.apps mydep kubernetes.io/change-cause="rolled back to nginx "
+kubectl rollout history deployment mydep
+history
+kubectl get deployments.apps
+kubectl scale deployment mydep --replicas 5
+kubectl get deployments.apps
+kubectl get pods
+kubectl scale deployment mydep --replicas 2
+kubectl get pods
+#kubectl autoscale deployment mydep --min 3 --max 8 --cpu-percent 70
+kubectl get pods
+kubectl autoscale deployment mydep --min 3 --max 8 --cpu-percent 70 --dry-run=client -o yaml
+kubectl autoscale deployment mydep --min 3 --max 8 --cpu-percent 70
+kubectl get hpa
+kubectl get pod -n kube-system
+kubectl get hpa
+cp rc.yaml daemonset.yaml
+vi daemonset.yaml
+kubectl create -f daemonset.yaml
+kubectl get pod -o wide
+kubectl get nodes
+kubectl get pod -o wide
+kubectl get nodes
+kubectl get pod -o wide
+kubectl rollout restart deployment mydep
+kubectl get pod -o wide
