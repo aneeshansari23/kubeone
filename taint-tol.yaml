@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: mango
+  name: taint-pod
+spec:
+  containers:
+  - image: nginx:latest
+    name: con1
+    ports:
+    - containerPort: 80
+  tolerations:
+  - key: color
+    operator: Equal
+    value: green
+    effect: NoExecute
