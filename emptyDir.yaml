@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydep
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+     metadata:
+       labels:
+         app: myapp
+     spec:
+       containers:
+       - image: nginx:latest
+         name: con1
+         ports:
+         - containerPort: 80
+         volumeMounts:
+         - name: myvol
+           mountPath: /app
+       - image: tomcat:latest
+         name: con2
+         ports:
+         - containerPort: 8080
+         volumeMounts:
+         - name: myvol
+           mountPath: /data
+       volumes:
+       - name: myvol
+         emptyDir: {}
