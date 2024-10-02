@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: lr-devops
+  namespace: devops
+spec:
+  limits:
+  - default: # this section defines default limits
+      cpu: "250m"
+      memory: "512Mi"
+    defaultRequest: # this section defines default requests
+      cpu: "100m"
+      memory: "64Mi"
+    type: Container
+
